@@ -3,28 +3,58 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
+
     <groupId>de.cwkr</groupId>
     <artifactId>webapp-quickstart-archetype</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1</version>
     <packaging>maven-archetype</packaging>
 
-    <name>Maven Webapp Quickstart Archetype</name>
+    <name>${project.groupId}:${project.artifactId}</name>
     <url>https://github.com/cwkr/webapp-quickstart-archetype</url>
-    <description>Simple Webapp using JSP and Servlet API</description>
-    
+    <description>Simple Webapp using scriptless JSP and Servlet API</description>
+
     <licenses>
         <license>
-            <name>Apache License</name>
+            <name>The Apache License, Version 2.0</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0</url>
         </license>
     </licenses>
-    
+
+    <developers>
+        <developer>
+            <name>Christian Winkler</name>
+            <url>https://github.com/cwkr</url>
+            <id>cwkr</id>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/cwkr/webapp-quickstart-archetype</url>
+        <connection>scm:git:git://github.com/cwkr/webapp-quickstart-archetype.git</connection>
+        <developerConnection>scm:git:git@github.com:cwkr/webapp-quickstart-archetype.git</developerConnection>
+    </scm>
+
+    <issueManagement>
+        <url>https://github.com/cwkr/webapp-quickstart-archetype/issues</url>
+        <system>GitHub Issues</system>
+    </issueManagement>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <archetype.test.skip>true</archetype.test.skip>
     </properties>
-    
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -50,6 +80,22 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
         <extensions>
             <extension>
                 <groupId>org.apache.maven.archetype</groupId>
