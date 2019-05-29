@@ -6,9 +6,9 @@ Project archetype for a simple Webapp using scriptless JSP and Servlet API.
 ## Usage
 
 ```
-mvn archetype:generate -DarchetypeGroupId=de.cwkr.archetypes \
+mvn archetype:generate -DarchetypeGroupId=de.cwkr \
                        -DarchetypeArtifactId=webapp-quickstart-archetype \
-                       -DarchetypeVersion=1.0-SNAPSHOT
+                       -DarchetypeVersion=0.1
 ```
 
 
